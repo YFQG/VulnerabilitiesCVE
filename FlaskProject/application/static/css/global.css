@@ -1,0 +1,97 @@
+.user_name{
+    padding: 0 0 2rem;
+}
+
+.graph_area{
+    padding: 4rem 0 0 0;
+}
+
+/*Cards*/
+
+.value_cards_sec{
+    margin-top: 2 rem;
+    margin-bottom: 2 rem;
+}
+
+.value_card {
+    border-radius: 12px;
+    color: black; /* Cambiar color de texto según necesites */
+    background-color: #ddd;
+    height: 115px;
+    padding: 1.2rem;
+}
+
+.value_card p {
+    font-size: 14px;
+}
+
+.value_card h3 {
+    font-weight: 700;
+}
+
+/* Green card */
+.card_1 {
+    background: transparent linear-gradient(109deg, #55ECB2 0%, #2DD393 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0 16px 20px #676867; /* Cambiar sombra a verde */
+}
+
+/* Yellow card */
+.card_2 {
+    background: transparent linear-gradient(109deg, #FFEC5E 0%, #FFD644 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0 16px 20px #676867; /* Cambiar sombra a amarillo */
+}
+
+/* Red card */
+.card_3 {
+    background: transparent linear-gradient(109deg, #FF7866 0%, #FF5454 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0 16px 20px #676867; /* Cambiar sombra a rojo */
+}
+
+/* Black card */
+.card_4 {
+    color: #FFF !important;
+    background: transparent linear-gradient(109deg, #333333 0%, #000000 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0 16px 20px #676867; /* Cambiar sombra a negro */
+}
+
+/*Graphs*/
+
+.graph_sec{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.graph_sec_2{
+    box-shadow: 0px 16 px 20px #FFCEB9;
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.graph_title{
+    color: #2B2B2B;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+
+.graph_sec_2 iframe{
+    width: 100%; 
+    border: none; 
+}
+
+.pie_chart{
+    height: 300px;
+}
+
+.line_chart{
+    width: 135%;
+    height: 200px;
+}
+
+.bar_chart{
+    height: 650px;
+}
+
+.horizontal_bar{
+    height: 500px;
+}

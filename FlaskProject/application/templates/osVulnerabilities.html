@@ -1,0 +1,48 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>SO más Vulnerables</title>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <style>
+            canvas{ 
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+          </style>
+        </head>
+        <body>
+          <div style="width: 75%;">
+            <canvas id="myChart"></canvas>
+          </div>
+          <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ["Windows", "Linux", "Mac"],
+                    datasets: [{
+                        data: [827, 0, 0],
+                        backgroundColor: ["lightcoral", "lightskyblue", "lightgreen"]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text: 'Porcentaje de CVEs por sistema operativo'
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    }
+                }
+            });
+          </script>
+        </body>
+        </html>
+        

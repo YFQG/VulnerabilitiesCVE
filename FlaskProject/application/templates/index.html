@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!--Start de nav bar-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-light nav_light navbar_light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/static/images/logo-icon.svg" alt="logo icon" class="h-10">       
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <p class="h5">UdeC PC Vulnerabilities</p>
+                  </a>
+                </li>
+              </ul>
+        </div>
+    </div>
+</nav>
+<!--End the nav bar-->
+
+<!--Start dashboard grid-->
+<div class="graph_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="user_name">
+                    <p class="h2">¡Welcome to this proyect created by <strong>David Contreras</strong> AND <strong>Yamid Quiroga</strong> !</p>
+                </div>
+            </div>
+            <div class="value_cards_sec">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="value_card card_1">
+                            <p>CVE with low severity</p>
+                            <h3>32</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="value_card card_2">
+                            <p>CVE with medium severity</p>
+                            <h3>336</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="value_card card_3">
+                            <p>CVE with high severity</p>
+                            <h3>268</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="value_card card_4">
+                            <p>CVE with critical severity</p>
+                            <h3>75</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="graph_sec">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="graph_sec_2">
+                        <p class="graph_title">Porcentaje de CVEs por sistema operativo</p>
+                        <iframe class="pie_chart" src="{{ url_for('osVulnerabilities') }}" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="graph_sec_2">
+                        <p class="graph_title">Top 10 CVEs más repetidos</p>
+                        <iframe class="line_chart" src="{{ url_for('mostCVE') }}"  frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="graph_sec_2">
+                        <p class="graph_title">Top 10 Software Más Vulnerables</p>
+                        <iframe class="bar_chart" src="{{ url_for('top_softwares') }}"  frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="graph_sec_2">
+                        <p class="graph_title">Pc mas vulnerables</p>
+                        <iframe class="horizontal_bar" src="{{ url_for('vulnerablePC') }}"  frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End dashboard grid-->
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+
+{% endblock %}
+

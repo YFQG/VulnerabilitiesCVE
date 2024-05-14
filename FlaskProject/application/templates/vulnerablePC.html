@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cantidad de CVEs por PC</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas{ 
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div style="width: 75%;">
+    <canvas id="myChart" height="400"></canvas> <!-- Ajusta la altura del canvas según la cantidad de nombres a mostrar -->
+  </div>
+  <script>
+    var config = {
+        type: 'bar',
+        data: {
+            labels: ["LAPTOP-HH71NAS7", "LAPTOP-JorgeRodríguez", "DESKTOP-FHV7QBV", "WinDev", "DESKTOP-T53HTPF", "DESKTOP-8LI99NM", "SantiagoVira", "LAPTOP-1HN3IVSB", "DESKTOP-MD6JCEP", "DESKTOP-9QFVC0K", "YFQG-LAPTOP", "DESKTOP-3BG210H", "DESKTOP-G8A2NN0", "Carlos_Ramos", "SantiagoM", "AsusDavid"],
+            datasets: [{
+                label: 'Cantidad de CVEs',
+                data: [527, 351, 339, 314, 306, 250, 212, 211, 195, 192, 169, 128, 125, 109, 61, 40],
+                backgroundColor: ["skyblue", "salmon", "lightgreen", "orange", "lightcoral", "lightskyblue", "lightgreen", "skyblue", "salmon", "lightgreen", "orange", "lightcoral", "lightskyblue", "lightgreen", "skyblue", "salmon"]
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Cantidad de CVEs por PC'
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, config);
+  </script>
+</body>
+</html>
