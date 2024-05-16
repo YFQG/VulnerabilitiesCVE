@@ -84,14 +84,21 @@
 }
 
 .line_chart{
-    width: 135%;
+    width: 200%;
     height: 200px;
 }
 
 .bar_chart{
+    width: 135%;
     height: 650px;
+    padding: 0.5rem !important;
 }
 
 .horizontal_bar{
-    height: 500px;
+    height: 450px;
+}
+
+.year_line{
+    width: 170%;
+    height: 650px;
 }

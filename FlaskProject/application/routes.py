@@ -21,6 +21,14 @@ def mostCVE():
 def vulnerablePC():
     return render_template('vulnerablePC.html')
 
+@app.route('/yearLine')
+def yearLine():
+    return render_template('yearLine.html')
+
+@app.route('/severityPie')
+def severityPie():
+    return render_template('severityPie.html')
+
 @app.route('/layout')
 def layout():
     return render_template('layout.html', title = 'layout')
