@@ -1,0 +1,77 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Distribución de CVEs por Año</title>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <style>
+        canvas{ 
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+      </style>
+    </head>
+    <body>
+      <div style="width: 75%; height: 500px;">
+        <canvas id="myChart"></canvas>
+      </div>
+      <script>
+        var config = {
+            type: 'line',
+            data: {
+                labels: ["2003", "2005", "2006", "2007", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                datasets: [{
+                    label: 'Cantidad de CVEs',
+                    data: [3, 6, 177, 2, 43, 51, 86, 58, 74, 79, 82, 321, 79, 219, 105, 281, 1558, 5664, 10164],
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                    fill: true,
+                    tension: 0.1,
+                    pointStyle: 'circle',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Distribución de CVEs por Año'
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Año'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad de CVEs'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return ' ' + context.raw + ' CVEs';
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, config);
+      </script>
+    </body>
+    </html>
+    
