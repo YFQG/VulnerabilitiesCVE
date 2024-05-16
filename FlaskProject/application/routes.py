@@ -3,7 +3,7 @@ from flask import render_template
 
 @app.route("/")
 def index():
-    return render_template('index.html', title = 'index')
+    return render_template('index.html', title = 'Dasboard')
 
 @app.route('/topSoftwares')
 def top_softwares():
