@@ -12,11 +12,14 @@
             -webkit-user-select: none;
             -ms-user-select: none;
         }
+        #myChart{
+          height: 300px !important;
+        }
       </style>
     </head>
     <body>
-      <div style="width: 75%;">
-        <canvas id="myChart"></canvas>
+      <div style="width: 100%;">
+        <canvas id="myChart" ></canvas>
       </div>
       <script>
         var ctx = document.getElementById('myChart').getContext('2d');

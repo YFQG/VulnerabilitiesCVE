@@ -84,14 +84,18 @@
 }
 
 .line_chart{
-    width: 200%;
-    height: 200px;
+    height: 300px;
+    overflow-y: hidden  ;
 }
 
 .bar_chart{
     width: 135%;
-    height: 650px;
+    height: 100%;
     padding: 0.5rem !important;
+}
+
+.bar_top{
+    height: 700px;
 }
 
 .horizontal_bar{
@@ -101,4 +105,14 @@
 .year_line{
     width: 170%;
     height: 650px;
+}
+
+.line_top{
+    position: relative;
+    justify-content: flex-end;
+}
+.object_line{
+    display: flex;
+    width: 100%;
+    block-size: 100%;
 }
