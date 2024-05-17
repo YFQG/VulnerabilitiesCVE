@@ -1,31 +1,40 @@
 {% extends 'layout.html' %}
 {% block content %}
-          <div style="width: 75%;">
-            <canvas id="myChart"></canvas>
-          </div>
-          <script>
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ["Windows", "Linux", "Mac"],
-                    datasets: [{
-                        data: [827, 0, 0],
-                        backgroundColor: ["lightcoral", "lightskyblue", "lightgreen"]
-                    }]
+    <!-- Start of content -->
+    <div style="width: 75%;">
+        <!-- Canvas element for the pie chart -->
+        <canvas id="myChart"></canvas>
+    </div>
+    <!-- Script to initialize Chart.js and create the pie chart -->
+    <script>
+        // Get the canvas element by its ID
+        var ctx = document.getElementById('myChart').getContext('2d');
+        // Create a new pie chart instance
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                // Labels for the segments (Operating systems)
+                labels: ["Windows", "Linux", "Mac"],
+                datasets: [{
+                    // Data values for the segments (CVE counts for each OS)
+                    data: [827, 0, 0],
+                    // Background colors for the segments
+                    backgroundColor: ["lightcoral", "lightskyblue", "lightgreen"]
+                }]
+            },
+            options: {
+                responsive: true, // Make the chart responsive
+                maintainAspectRatio: false, // Don't maintain aspect ratio
+                title: {
+                    display: true,
+                    text: 'Percentage of CVEs by operating system' // Title of the chart
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    title: {
-                        display: true,
-                        text: 'Porcentaje de CVEs por sistema operativo'
-                    },
-                    legend: {
-                        display: true,
-                        position: 'right'
-                    }
+                legend: {
+                    display: true, // Display legend
+                    position: 'right' // Position the legend on the right side
                 }
-            });
-          </script>
+            }
+        });
+    </script>
+    <!-- End of content -->
 {% endblock %}

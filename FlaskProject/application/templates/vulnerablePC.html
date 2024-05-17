@@ -1,38 +1,47 @@
-
-
 {% extends 'layout.html' %}
 {% block content %}
-  <div style="width: 100%;">
-    <canvas id="myChart" height="400"></canvas> <!-- Ajusta la altura del canvas según la cantidad de nombres a mostrar -->
-  </div>
-  <script>
-    var config = {
-        type: 'bar',
-        data: {
-            labels: ["LAPTOP-HH71NAS7", "LAPTOP-JorgeRodríguez", "DESKTOP-FHV7QBV", "WinDev", "DESKTOP-T53HTPF", "DESKTOP-8LI99NM", "SantiagoVira", "LAPTOP-1HN3IVSB", "DESKTOP-MD6JCEP", "DESKTOP-9QFVC0K", "YFQG-LAPTOP", "DESKTOP-3BG210H", "DESKTOP-G8A2NN0", "Carlos_Ramos", "SantiagoM", "AsusDavid"],
-            datasets: [{
-                label: 'Cantidad de CVEs',
-                data: [527, 351, 339, 314, 306, 250, 212, 211, 195, 192, 169, 128, 125, 109, 61, 40],
-                backgroundColor: ["skyblue", "salmon", "lightgreen", "orange", "lightcoral", "lightskyblue", "lightgreen", "skyblue", "salmon", "lightgreen", "orange", "lightcoral", "lightskyblue", "lightgreen", "skyblue", "salmon"]
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
-            title: {
-                display: true,
-                text: 'Cantidad de CVEs por PC'
+    <!-- Start of content -->
+    <div style="width: 100%;">
+        <!-- Canvas element for the bar chart with adjusted height -->
+        <canvas id="myChart" height="400"></canvas>
+    </div>
+    <!-- Script to initialize Chart.js and create the bar chart -->
+    <script>
+        // Configuration object for the chart
+        var config = {
+            type: 'bar',
+            data: {
+                // Labels for the x-axis (PC names)
+                labels: ["LAPTOP-HH71NAS7", "LAPTOP-JorgeRodríguez", "DESKTOP-FHV7QBV", "WinDev", "DESKTOP-T53HTPF", "DESKTOP-8LI99NM", "SantiagoVira", "LAPTOP-1HN3IVSB", "DESKTOP-MD6JCEP", "DESKTOP-9QFVC0K", "YFQG-LAPTOP", "DESKTOP-3BG210H", "DESKTOP-G8A2NN0", "Carlos_Ramos", "SantiagoM", "AsusDavid"],
+                datasets: [{
+                    // Label for the dataset
+                    label: 'CVE Count',
+                    // Data points for the y-axis (CVE counts for each PC)
+                    data: [527, 351, 339, 314, 306, 250, 212, 211, 195, 192, 169, 128, 125, 109, 61, 40],
+                    // Background colors for the bars
+                    backgroundColor: ["skyblue", "salmon", "lightgreen", "orange", "lightcoral", "lightskyblue", "lightgreen", "skyblue", "salmon", "lightgreen", "orange", "lightcoral", "lightskyblue", "lightgreen", "skyblue", "salmon"]
+                }]
             },
-            scales: {
-                y: {
-                    beginAtZero: true
+            options: {
+                indexAxis: 'y', // Display bars vertically
+                responsive: true, // Make the chart responsive
+                maintainAspectRatio: false, // Don't maintain aspect ratio
+                title: {
+                    display: true,
+                    text: 'CVE Count per PC' // Title of the chart
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true // Start y-axis at zero
+                    }
                 }
             }
-        }
-    };
+        };
 
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, config);
-  </script>
+        // Get the canvas element by its ID
+        var ctx = document.getElementById('myChart').getContext('2d');
+        // Create a new bar chart instance
+        var myChart = new Chart(ctx, config);
+    </script>
+    <!-- End of content -->
 {% endblock %}

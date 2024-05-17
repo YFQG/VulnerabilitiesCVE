@@ -1,69 +1,72 @@
-
 {% extends 'layout.html' %}
 {% block content %}
-        <div style="width: 100%;">
-            <canvas id="myChart"></canvas>
-        </div>
-        <script>
-            // Obtener los datos de Python
-            var data = JSON.parse('{"sql server 2022 common files": 94, "sql server 2019 common files": 88, "node.js": 51, "ni labview 2023 q1 real-time base image for linux rt": 44, "ni labview 2023 q3 real-time base image for linux rt": 44, "ni labview 2024 q1 real-time base image for linux rt": 40, "microsoft xna framework redistributable 4.0 refresh": 33, "adobe refresh manager": 32, "microsoft skype for business mui (spanish) 2016": 32, "ni labwindows/cvi shared runtime openmp 2020": 23}');
-            var labels = Object.keys(data);
-            var values = Object.values(data);
+    <!-- Start of content -->
+    <div style="width: 100%;">
+        <!-- Canvas element for the bar chart -->
+        <canvas id="myChart"></canvas>
+    </div>
+    <!-- Script to initialize Chart.js and create the bar chart -->
+    <script>
+        // Get the data from Python
+        var data = JSON.parse('{"sql server 2022 common files": 94, "sql server 2019 common files": 88, "node.js": 51, "ni labview 2023 q1 real-time base image for linux rt": 44, "ni labview 2023 q3 real-time base image for linux rt": 44, "ni labview 2024 q1 real-time base image for linux rt": 40, "microsoft xna framework redistributable 4.0 refresh": 33, "adobe refresh manager": 32, "microsoft skype for business mui (spanish) 2016": 32, "ni labwindows/cvi shared runtime openmp 2020": 23}');
+        var labels = Object.keys(data);
+        var values = Object.values(data);
 
-            // Crear la gráfica utilizando Chart.js
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Cantidad de CVE',
-                        data: values,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',    // Color para SW1
-                            'rgba(54, 162, 235, 0.6)',    // Color para SW2
-                            'rgba(255, 206, 86, 0.6)',    // Color para SW3
-                            'rgba(75, 192, 192, 0.6)',    // Color para SW4
-                            'rgba(153, 102, 255, 0.6)',   // Color para SW5
-                            'rgba(255, 159, 64, 0.6)',    // Color para SW6
-                            'rgba(255, 99, 132, 0.6)',    // Color para SW7
-                            'rgba(54, 162, 235, 0.6)',    // Color para SW8
-                            'rgba(255, 206, 86, 0.6)',    // Color para SW9
-                            'rgba(75, 192, 192, 0.6)',    // Color para SW10
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',      // Borde para SW1
-                            'rgba(54, 162, 235, 1)',      // Borde para SW2
-                            'rgba(255, 206, 86, 1)',      // Borde para SW3
-                            'rgba(75, 192, 192, 1)',      // Borde para SW4
-                            'rgba(153, 102, 255, 1)',     // Borde para SW5
-                            'rgba(255, 159, 64, 1)',      // Borde para SW6
-                            'rgba(255, 99, 132, 1)',      // Borde para SW7
-                            'rgba(54, 162, 235, 1)',      // Borde para SW8
-                            'rgba(255, 206, 86, 1)',      // Borde para SW9
-                            'rgba(75, 192, 192, 1)',      // Borde para SW10
-                        ],
-                        borderWidth: 1
+        // Create the chart using Chart.js
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'CVE Count',
+                    data: values,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',    // Color for SW1
+                        'rgba(54, 162, 235, 0.6)',    // Color for SW2
+                        'rgba(255, 206, 86, 0.6)',    // Color for SW3
+                        'rgba(75, 192, 192, 0.6)',    // Color for SW4
+                        'rgba(153, 102, 255, 0.6)',   // Color for SW5
+                        'rgba(255, 159, 64, 0.6)',    // Color for SW6
+                        'rgba(255, 99, 132, 0.6)',    // Color for SW7
+                        'rgba(54, 162, 235, 0.6)',    // Color for SW8
+                        'rgba(255, 206, 86, 0.6)',    // Color for SW9
+                        'rgba(75, 192, 192, 0.6)',    // Color for SW10
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',      // Border for SW1
+                        'rgba(54, 162, 235, 1)',      // Border for SW2
+                        'rgba(255, 206, 86, 1)',      // Border for SW3
+                        'rgba(75, 192, 192, 1)',      // Border for SW4
+                        'rgba(153, 102, 255, 1)',     // Border for SW5
+                        'rgba(255, 159, 64, 1)',      // Border for SW6
+                        'rgba(255, 99, 132, 1)',      // Border for SW7
+                        'rgba(54, 162, 235, 1)',      // Border for SW8
+                        'rgba(255, 206, 86, 1)',      // Border for SW9
+                        'rgba(75, 192, 192, 1)',      // Border for SW10
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
                     }]
                 },
-                options: {
-                    scales: {
-                        xAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                autoSkip: false
-                            }
-                        }]
-                    },
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false
-                    }
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
                 }
-            });
-        </script>
+            }
+        });
+    </script>
+    <!-- End of content -->
 {% endblock %}

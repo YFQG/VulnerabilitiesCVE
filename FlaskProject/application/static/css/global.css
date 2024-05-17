@@ -89,8 +89,8 @@
 }
 
 .bar_chart {
-    width: 100%; /* Cambiado de 200% a 100% */
-    height: 70vh; /* Usar vh para la altura relativa */
+    width: 100%; 
+    height: 70vh; 
 }
 
 .horizontal_bar{

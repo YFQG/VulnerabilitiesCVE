@@ -1,110 +1,129 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <!--Start de nav bar-->
+    <!-- Start of the navigation bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light nav_light navbar_light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
+                <!-- Logo icon -->
                 <img src="/static/images/logo-icon.svg" alt="logo icon" class="h-10">       
             </a>
+            <!-- Button to toggle navigation menu on smaller screens -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- Navigation links -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
-                        <p class="h5">UdeC PC Vulnerabilities</p>
-                    </a>
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <!-- Title of the page -->
+                            <p class="h5">UdeC PC Vulnerabilities</p>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!--End the nav bar-->
+    <!-- End of the navigation bar -->
 
-    <!--Start dashboard grid-->
+    <!-- Start of dashboard grid -->
     <div class="graph_area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="user_name">
-                        <p class="h2">¡Welcome to this proyect created by <strong>David Contreras</strong> AND <strong>Yamid Quiroga</strong> !</p>
+                        <!-- Welcome message -->
+                        <p class="h2">Welcome to this project created by <strong>David Contreras</strong> AND <strong>Yamid Quiroga</strong>!</p>
                     </div>
                 </div>
+                <!-- Start of value cards section -->
                 <div class="value_cards_sec">
                     <div class="row">
                         <div class="col-lg-3">
+                            <!-- Value card for CVEs with low severity -->
                             <div class="value_card card_1">
-                                <p>CVE with low severity</p>
+                                <p>CVEs with low severity</p>
                                 <h3>32</h3>
                             </div>
                         </div>
                         <div class="col-lg-3">
+                            <!-- Value card for CVEs with medium severity -->
                             <div class="value_card card_2">
-                                <p>CVE with medium severity</p>
+                                <p>CVEs with medium severity</p>
                                 <h3>336</h3>
                             </div>
                         </div>
                         <div class="col-lg-3">
+                            <!-- Value card for CVEs with high severity -->
                             <div class="value_card card_3">
-                                <p>CVE with high severity</p>
+                                <p>CVEs with high severity</p>
                                 <h3>268</h3>
                             </div>
                         </div>
                         <div class="col-lg-3">
+                            <!-- Value card for CVEs with critical severity -->
                             <div class="value_card card_4">
-                                <p>CVE with critical severity</p>
+                                <p>CVEs with critical severity</p>
                                 <h3>75</h3>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- End of value cards section -->
             </div>
+            <!-- Start of graph section -->
             <div class="graph_sec">
                 <div class="row">
+                    <!-- Pie chart showing percentage of CVEs by operating system -->
                     <div class="col-lg-3">
                         <div class="graph_sec_2">
-                            <p class="graph_title">Porcentaje de CVEs por sistema operativo</p>
+                            <p class="graph_title">Percentage of CVEs by operating system</p>
                             <iframe class="pie_chart" src="{{ url_for('osVulnerabilities') }}" frameborder="0"></iframe>
                         </div>
                     </div>
+                    <!-- Line chart showing top 10 most repeated CVEs -->
                     <div class="col-lg-9">
                         <div class="graph_sec_2">
-                            <p class="graph_title">Top 10 CVEs más repetidos</p>
+                            <p class="graph_title">Top 10 most repeated CVEs</p>
                             <iframe class="line_chart" src="{{ url_for('mostCVE') }}"  frameborder="0"></iframe>
                         </div>
                     </div>
+                    <!-- Bar chart showing top 10 most vulnerable software -->
                     <div class="col-lg-12 ">
                         <div class="graph_sec_2">
-                            <p class="graph_title">Top 10 Software Más Vulnerables</p>
+                            <p class="graph_title">Top 10 most vulnerable software</p>
                             <iframe class="bar_chart" src="{{ url_for('top_softwares') }}"  frameborder="0"></iframe>
                         </div>
                     </div>
+                    <!-- Horizontal bar chart showing most vulnerable PCs -->
                     <div class="col-lg-9">
                         <div class="graph_sec_2 bar_top">
-                            <p class="graph_title">Pc mas vulnerables</p>
+                            <p class="graph_title">Most vulnerable PCs</p>
                             <iframe class="horizontal_bar" src="{{ url_for('vulnerablePC') }}"  frameborder="0"></iframe>
                         </div>
                     </div>
+                    <!-- Pie chart showing distribution of CVEs by severity -->
                     <div class="col-lg-3">
                         <div class="graph_sec_2">
-                            <p class="graph_title">Distribucion de CVEs por severidad</p>
+                            <p class="graph_title">Distribution of CVEs by severity</p>
                             <iframe class="pie_chart" src="{{ url_for('severityPie') }}"  frameborder="0"></iframe>
                         </div>
                     </div>
+                    <!-- Line chart showing distribution of CVEs by year -->
                     <div class="col-lg-12">
                         <div class="graph_sec_2">
-                            <p class="graph_title">Distribucion de CVEs por año</p>
+                            <p class="graph_title">Distribution of CVEs by year</p>
                             <iframe class="year_line" src="{{ url_for('yearLine') }}"  frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- End of graph section -->
         </div>
     </div>
-    <!--End dashboard grid-->
+    <!-- End of dashboard grid -->
 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
 
 {% endblock %}
-

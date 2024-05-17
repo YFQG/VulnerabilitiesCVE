@@ -1,44 +1,51 @@
 {% extends 'layout.html' %}
 {% block content %}
-      <div style="height: 500px;">
+    <!-- Start of content -->
+    <div style="height: 500px;">
+        <!-- Canvas element for the line chart -->
         <canvas id="myChart"></canvas>
-      </div>
-      <script>
+    </div>
+    <!-- Script to initialize Chart.js and create the line chart -->
+    <script>
+        // Configuration object for the chart
         var config = {
             type: 'line',
             data: {
+                // Labels for the x-axis (Years)
                 labels: ["2003", "2005", "2006", "2007", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
                 datasets: [{
-                    label: 'Cantidad de CVEs',
+                    // Label for the dataset
+                    label: 'CVE Count',
+                    // Data points for the y-axis (CVE counts for each year)
                     data: [3, 6, 177, 2, 43, 51, 86, 58, 74, 79, 82, 321, 79, 219, 105, 281, 1558, 5664, 10164],
-                    borderColor: 'blue',
-                    backgroundColor: 'rgba(0, 0, 255, 0.1)',
-                    fill: true,
-                    tension: 0.1,
-                    pointStyle: 'circle',
-                    pointRadius: 5,
-                    pointHoverRadius: 7
+                    borderColor: 'blue', // Line color
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)', // Fill color
+                    fill: true, // Fill area under the line
+                    tension: 0.1, // Tension of the line
+                    pointStyle: 'circle', // Style of points
+                    pointRadius: 5, // Radius of points
+                    pointHoverRadius: 7 // Radius of points on hover
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
+                responsive: true, // Make the chart responsive
+                maintainAspectRatio: false, // Don't maintain aspect ratio
                 title: {
                     display: true,
-                    text: 'Distribución de CVEs por Año'
+                    text: 'Distribution of CVEs by Year' // Title of the chart
                 },
                 scales: {
                     x: {
                         title: {
                             display: true,
-                            text: 'Año'
+                            text: 'Year' // Label for the x-axis
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: true, // Start y-axis at zero
                         title: {
                             display: true,
-                            text: 'Cantidad de CVEs'
+                            text: 'CVE Count' // Label for the y-axis
                         }
                     }
                 },
@@ -46,6 +53,7 @@
                     tooltip: {
                         callbacks: {
                             label: function(context) {
+                                // Customize tooltip label to display CVE count
                                 return ' ' + context.raw + ' CVEs';
                             }
                         }
@@ -54,10 +62,10 @@
             }
         };
 
+        // Get the canvas element by its ID
         var ctx = document.getElementById('myChart').getContext('2d');
+        // Create a new line chart instance
         var myChart = new Chart(ctx, config);
-      </script>
+    </script>
+    <!-- End of content -->
 {% endblock %}
-
-
-    
