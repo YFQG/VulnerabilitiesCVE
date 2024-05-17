@@ -1,20 +1,5 @@
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Distribución de CVEs por Año</title>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <style>
-        canvas{ 
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-      </style>
-    </head>
-    <body>
+{% extends 'layout.html' %}
+{% block content %}
       <div style="height: 500px;">
         <canvas id="myChart"></canvas>
       </div>
@@ -72,6 +57,7 @@
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, config);
       </script>
-    </body>
-    </html>
+{% endblock %}
+
+
     

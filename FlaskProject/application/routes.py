@@ -11,11 +11,11 @@ def top_softwares():
 
 @app.route('/osVulnerabilities')
 def osVulnerabilities():
-    return render_template('osVulnerabilities.html')
+    return render_template('osVulnerabilities.html', title='SO mas Vulnerables')
 
 @app.route('/mostCVE')
 def mostCVE():
-    return render_template('mostCVE.html')
+    return render_template('mostCVE.html', title='cve mas repetidos')
 
 @app.route('/vulnerablePC')
 def vulnerablePC():

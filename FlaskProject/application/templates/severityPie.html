@@ -1,21 +1,8 @@
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Distribución de CVEs por Severidad</title>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <style>
-        canvas{ 
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-      </style>
-    </head>
-    <body>
-      <div style="width: 75%;">
+      
+    
+{% extends 'layout.html' %}
+{% block content %}
+    <div style="width: 75%;">
         <canvas id="myChart"></canvas>
       </div>
       <script>
@@ -39,6 +26,4 @@
             }
         });
       </script>
-    </body>
-    </html>
-    
+{% endblock %}

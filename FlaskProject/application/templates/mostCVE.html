@@ -1,25 +1,11 @@
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Diagrama de Líneas</title>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <style>
-        canvas{ 
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-        #myChart{
-          height: 300px !important;
-        }
-      </style>
-    </head>
+
+    
+{% extends 'layout.html' %}
+{% block content %}
     <body>
       <div style="width: 100%;">
-        <canvas id="myChart" ></canvas>
+        <canvas id="myChart" style="height: 300px;"></canvas>
       </div>
       <script>
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -50,6 +36,4 @@
             }
         });
       </script>
-    </body>
-    </html>
-    
+{% endblock %}
